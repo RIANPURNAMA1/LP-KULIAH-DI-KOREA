@@ -266,7 +266,7 @@ export default function Home() {
 
           {/* Transparent background image */}
           <Image
-            src="/deu.png"
+            src="/bg-hero.jpg"
             alt=""
             fill
             priority
@@ -275,7 +275,7 @@ export default function Home() {
           />
 
           {/* Subtle grid */}
-          <div
+          {/* <div
             className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage:
@@ -283,7 +283,7 @@ export default function Home() {
               backgroundSize: "32px 32px",
               maskImage: "linear-gradient(to bottom, black, transparent 95%)",
             }}
-          />
+          /> */}
         </div>
 
         {/* Main content */}
@@ -390,7 +390,7 @@ export default function Home() {
             </div>
 
             {/* Floating badge */}
-            <div className="absolute bottom-[8%] right-[2%] z-20 rounded-sm border border-white bg-[#033378]/95 px-4 py-3 shadow-2xl shadow-black/25 backdrop-blur-md md:bottom-[9%] md:right-[1%] md:px-5 md:py-4">
+            <div className="absolute bottom-[8%] right-[2%] z-20 rounded-md border border-white bg-[#033378]/95 px-4 py-3 shadow-2xl shadow-black/25 backdrop-blur-md md:bottom-[9%] md:right-[1%] md:px-5 md:py-4">
               <div className="flex items-center gap-3">
                 <div>
                   <p className="text-sm font-bold tracking-wide text-white md:text-base">
@@ -416,7 +416,7 @@ export default function Home() {
         <div className="pointer-events-none absolute bottom-0 left-0 z-[1] h-8 w-full bg-gradient-to-t from-[#011632]/40 to-transparent" />
 
         <div className="mx-auto mb-9 max-w-[1280px] px-3 lg:px-4">
-          <div className="grid grid-cols-2 gap-y-6 rounded-sm border  bg-gradient-to-b from-[#033378] to-[#001738] px-4 py-7 md:grid-cols-5 md:gap-0 md:px-6">
+          <div className="grid grid-cols-2 gap-y-6 rounded-md border  bg-gradient-to-b from-[#033378] to-[#001738] px-4 py-7 md:grid-cols-5 md:gap-0 md:px-6">
             {heroStats.map((s, index) => (
               <div
                 key={s.label}
