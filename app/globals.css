@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-ink text-white antialiased; }
+
+@layer utilities {
+  .grad-text {
+    @apply bg-gradient-to-r from-sky-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent;
+  }
+  .grad-red {
+    @apply bg-gradient-to-r from-rose-400 to-crimson bg-clip-text text-transparent;
+  }
+}
+
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}

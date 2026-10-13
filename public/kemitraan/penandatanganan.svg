@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F3E81" />
+      <stop offset="1" stop-color="#111111" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <text x="600" y="430" font-size="260" text-anchor="middle">&#129309;</text>
+  <text x="600" y="620" fill="#8fbaff" font-family="sans-serif" font-size="44" font-weight="700" text-anchor="middle">
+    Foto Penandatanganan
+  </text>
+  <text x="600" y="672" fill="#ffffff" fill-opacity="0.5" font-family="sans-serif" font-size="26" text-anchor="middle">
+    Dong-eui University x Karir di Korea
+  </text>
+</svg>
