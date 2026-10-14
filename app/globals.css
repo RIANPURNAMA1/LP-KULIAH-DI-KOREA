@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 html { scroll-behavior: smooth; }
+html.lenis, html.lenis body { scroll-behavior: auto !important; }
 body { @apply bg-ink text-white antialiased; }
 
 @layer utilities {
@@ -17,7 +18,54 @@ body { @apply bg-ink text-white antialiased; }
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Scroll reveal — elemen masuk saat dibuka / di-scroll.
+   Hanya aktif saat <html> punya .reveal-ready (ditambahkan via script sebelum render),
+   jadi konten tetap tampil kalau JS mati / reduced-motion. */
+.reveal-ready main h1,
+.reveal-ready main h2,
+.reveal-ready main h3,
+.reveal-ready main h4,
+.reveal-ready main p,
+.reveal-ready main article,
+.reveal-ready main li,
+.reveal-ready main dd,
+.reveal-ready main dt,
+.reveal-ready main details,
+.reveal-ready main blockquote,
+.reveal-ready main figure {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-ready main .is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; animation: none !important; }
+  .reveal-ready main h1,
+  .reveal-ready main h2,
+  .reveal-ready main h3,
+  .reveal-ready main h4,
+  .reveal-ready main p,
+  .reveal-ready main article,
+  .reveal-ready main li,
+  .reveal-ready main dd,
+  .reveal-ready main dt,
+  .reveal-ready main details,
+  .reveal-ready main blockquote,
+  .reveal-ready main figure {
+    opacity: 1;
+    transform: none;
+  }
 }

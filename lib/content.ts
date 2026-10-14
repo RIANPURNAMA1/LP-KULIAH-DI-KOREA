@@ -5,11 +5,10 @@ export function waLink(text = "Halo Admin Karir di Korea, saya ingin cek kelayak
 }
 
 export const nav = [
-  { href: "/program", label: "Program" },
-  { href: "/beasiswa", label: "Beasiswa" },
-  { href: "/kerja", label: "Kerja" },
-  { href: "/biaya", label: "Biaya" },
-  { href: "/faq", label: "FAQ" },
+  { href: "#program", label: "Program" },
+  { href: "#beasiswa", label: "Beasiswa" },
+  { href: "#kerja", label: "Kerja" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export const heroStats = [
