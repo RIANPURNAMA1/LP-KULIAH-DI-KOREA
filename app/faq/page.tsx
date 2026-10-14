@@ -1,11 +1,22 @@
+import type { Metadata } from "next";
 import { Card, FinalCta, Heading, PageHero, PhotoPlaceholder, Section } from "@/components/ui";
 import { faqs } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
+import { faqSchema } from "@/lib/structured-data";
+import { ogImage } from "@/lib/seo";
 
-export const metadata = { title: "FAQ & Kemitraan | Karir di Korea" };
+export const metadata: Metadata = {
+  title: "FAQ & Kemitraan",
+  description:
+    "Jawaban pertanyaan umum seputar kuliah, beasiswa, dan kerja part-time di Korea, serta kerja sama resmi Dong-eui University × Karir di Korea.",
+  alternates: { canonical: "/faq" },
+  openGraph: { url: "/faq", images: [ogImage] },
+};
 
 export default function FaqPage() {
   return (
     <>
+      <JsonLd data={faqSchema(faqs)} />
       <PageHero title="Yang sering" accent="ditanya." sub="Jawaban singkat untuk pertanyaan yang paling sering masuk ke admin." />
 
       <Section>

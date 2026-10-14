@@ -5,7 +5,7 @@ Panduan hosting **tanpa Docker** untuk aplikasi Next.js 14 ini (Node.js + PM2 + 
 - Domain: `kuliahdikorea.com` (+ `www.kuliahdikorea.com`)
 - App: Next.js 14 (App Router), jalankan sebagai Node server (`next start`) di port `3000`
 - Tidak butuh database. Variabel `DB_*` di `.env.example` tidak dipakai aplikasi.
-- Satu-satunya env yang dipakai: `NEXT_PUBLIC_WA_NUMBER` (di-inline saat **build**).
+- Satu-satunya env yang dipakai: `NEXT_PUBLIC_WA_NUMBER` dan `NEXT_PUBLIC_SITE_URL` (keduanya di-inline saat **build**).
 
 > Target OS: Ubuntu 22.04 / 24.04 LTS. Perintah di bawah pakai `sudo` pada bagian sistem.
 
@@ -89,6 +89,7 @@ Buat file environment produksi. **Nilai `NEXT_PUBLIC_*` di-baca saat build**, ja
 ```bash
 cat > .env.production <<'EOF'
 NEXT_PUBLIC_WA_NUMBER=62895391685825
+NEXT_PUBLIC_SITE_URL=https://kuliahdikorea.com
 EOF
 ```
 
@@ -315,7 +316,7 @@ echo "Deploy selesai."
 ## 12. Checklist go-live
 
 - [ ] Node 20 terpasang, `sharp` terpasang
-- [ ] `.env.production` berisi `NEXT_PUBLIC_WA_NUMBER`
+- [ ] `.env.production` berisi `NEXT_PUBLIC_WA_NUMBER` dan `NEXT_PUBLIC_SITE_URL`
 - [ ] `npm run build` sukses
 - [ ] PM2 jalan + `pm2 save` + `pm2 startup`
 - [ ] Nginx `server_name` = `kuliahdikorea.com www.kuliahdikorea.com`

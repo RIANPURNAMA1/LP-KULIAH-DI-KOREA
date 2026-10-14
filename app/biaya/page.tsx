@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import { Card, FinalCta, Heading, PageHero, Section } from "@/components/ui";
 import { costRows, living, simulation, timeline } from "@/lib/content";
+import { ogImage } from "@/lib/seo";
 
-export const metadata = { title: "Biaya & Jadwal | Karir di Korea" };
+export const metadata: Metadata = {
+  title: "Biaya & Jadwal",
+  description:
+    "Rincian biaya persiapan dan keberangkatan, biaya hidup di Busan, simulasi tabungan, serta jadwal pendaftaran Spring 2027. Kuliah mulai Maret 2027.",
+  alternates: { canonical: "/biaya" },
+  openGraph: { url: "/biaya", images: [ogImage] },
+};
 
 export default function BiayaPage() {
   return (

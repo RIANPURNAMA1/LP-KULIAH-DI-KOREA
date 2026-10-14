@@ -5,7 +5,7 @@ Next.js 14 (App Router) + TypeScript + Tailwind CSS.
 ## Jalankan
 ```bash
 npm install
-cp .env.example .env.local   # isi NEXT_PUBLIC_WA_NUMBER dengan nomor admin
+cp .env.example .env.local   # isi NEXT_PUBLIC_WA_NUMBER + NEXT_PUBLIC_SITE_URL
 npm run dev
 ```
 Buka http://localhost:3000

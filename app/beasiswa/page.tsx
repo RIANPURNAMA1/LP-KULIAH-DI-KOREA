@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import { Card, FinalCta, Heading, PageHero, Section } from "@/components/ui";
 import { scholarships } from "@/lib/content";
+import { ogImage } from "@/lib/seo";
 
-export const metadata = { title: "Beasiswa | Karir di Korea" };
+export const metadata: Metadata = {
+  title: "Beasiswa",
+  description:
+    "Beasiswa hingga 100% berdasarkan skor IELTS dan peringkat IPK (Top 2%–Top 50%) di Dong-eui University. Skor IELTS naik, biaya kuliah turun.",
+  alternates: { canonical: "/beasiswa" },
+  openGraph: { url: "/beasiswa", images: [ogImage] },
+};
 
 export default function BeasiswaPage() {
   return (

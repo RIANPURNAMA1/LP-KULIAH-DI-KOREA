@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import { Card, FinalCta, Heading, PageHero, Section } from "@/components/ui";
 import { bonus, workPerks } from "@/lib/content";
+import { ogImage } from "@/lib/seo";
 
-export const metadata = { title: "Kerja Part-time | Karir di Korea" };
+export const metadata: Metadata = {
+  title: "Kerja Part-time",
+  description:
+    "Kerja paruh waktu legal untuk mahasiswa visa D-2 di Korea. Upah minimum 10.700 ₩/jam, penempatan dekat kampus, dan pengurusan izin Imigrasi dibantu fakultas.",
+  alternates: { canonical: "/kerja" },
+  openGraph: { url: "/kerja", images: [ogImage] },
+};
 
 export default function KerjaPage() {
   return (

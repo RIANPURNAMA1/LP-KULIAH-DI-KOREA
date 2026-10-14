@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   Card,
   FinalCta,
@@ -7,9 +8,15 @@ import {
   PhotoPlaceholder,
   Section,
 } from "@/components/ui";
-import { studentGrowth } from "@/lib/content";
+import { studentGrowth, waLink } from "@/lib/content";
 import { GrowthChart } from "@/components/GrowthChart";
 import { Hero } from "@/components/Hero";
+import { JsonLd } from "@/components/JsonLd";
+import { courseSchema, faqSchema } from "@/lib/structured-data";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 /* ---------- Data section (khusus halaman ini) ---------- */
 
@@ -248,6 +255,8 @@ function CheckIcon() {
 export default function Home() {
   return (
     <>
+      <JsonLd data={faqSchema(faqs)} />
+      <JsonLd data={courseSchema} />
       {/* HERO SECTION — Dong-eui University */}
       <Hero />
 
@@ -262,12 +271,12 @@ export default function Home() {
               </p>
             </div>
 
-            <h2 className="mt-5 max-w-2xl bg-gradient-to-r from-white from-30% via-[#73aaff] via-45% to-[#73aaff] bg-clip-text text-[clamp(1.3rem,3.1vw,2.4rem)] font-extrabold leading-tight tracking-tight text-transparent">
-              <span className="block whitespace-nowrap">
-                Korea lagi butuh tenaga muda.
+            <h2 className="mt-5 max-w-2xl bg-gradient-to-r from-white from-30% via-[#73aaff] via-45% to-[#73aaff] bg-clip-text text-[clamp(2.375rem,3.1vw,2.4rem)] font-extrabold leading-tight tracking-tight text-transparent">
+              <span className="block">
+                Korea lagi butuh tenaga muda
               </span>
-              <span className="block whitespace-nowrap">
-                Kamu bisa jadi salah satunya.
+              <span className="block">
+                Kamu bisa jadi salah satunya
               </span>
             </h2>
 
@@ -652,7 +661,10 @@ export default function Home() {
       </section>
 
       {/* BEASISWA */}
-      <section id="beasiswa" className="scroll-mt-24 bg-[#0C0D0E] py-12 md:py-16">
+      <section
+        id="beasiswa"
+        className="scroll-mt-24 bg-[#0C0D0E] py-12 md:py-16"
+      >
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
             {/* Heading */}
@@ -773,7 +785,7 @@ export default function Home() {
                       <p className="text-sm text-white/50">
                         Upah minimum Korea 2027
                       </p>
-                      <p className="mt-3 bg-gradient-to-r from-[#dceaff] to-[#1685ff] bg-clip-text text-4xl font-extrabold tracking-tight text-transparent md:text-6xl">
+                      <p className="mt-3 text-4xl font-extrabold tracking-tight text-white md:text-6xl">
                         10.700 ₩/jam
                       </p>
                       <p className="mt-4 text-sm text-white/40">
@@ -785,10 +797,7 @@ export default function Home() {
                   {/* Teks */}
                   <div>
                     <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white md:text-4xl">
-                      Upah jelas,{" "}
-                      <span className="bg-gradient-to-r from-[#dceaff] to-[#1685ff] bg-clip-text text-transparent">
-                        standar minimum Korea
-                      </span>
+                      Upah jelas, standar minimum Korea
                     </h3>
                     <ul className="mt-6 space-y-4">
                       {[
@@ -840,10 +849,7 @@ export default function Home() {
                   {/* Teks */}
                   <div>
                     <h3 className="text-2xl font-extrabold leading-tight tracking-tight text-white md:text-4xl">
-                      Dari izin sampai antar-jemput,{" "}
-                      <span className="bg-gradient-to-r from-[#dceaff] to-[#1685ff] bg-clip-text text-transparent">
-                        sudah ada jalurnya
-                      </span>
+                      Dari izin sampai antar-jemput, sudah ada jalurnya
                     </h3>
                     <ul className="mt-6 space-y-4">
                       {workPerks.map((w) => (
@@ -878,7 +884,7 @@ export default function Home() {
           {/* Heading */}
           <div className="mx-auto text-start">
             <h2 className="bg-gradient-to-r from-white from-30% via-[#73aaff] via-45% to-[#73aaff] bg-clip-text text-[38px] font-extrabold leading-tight tracking-tight text-transparent">
-              Bonus. Lulus bukan garis finish
+              Bonus Lulus bukan garis finish
               <br />
               Pilih jalurmu
             </h2>
@@ -921,10 +927,8 @@ export default function Home() {
                       {index + 1}
                     </span>
 
-                    <h3 className="mt-5 text-xl font-extrabold tracking-tight md:text-2xl">
-                      <span className="bg-gradient-to-r from-[#dceaff] to-[#1685ff] bg-clip-text text-transparent">
-                        {b.title}
-                      </span>
+                    <h3 className="mt-5 text-xl font-extrabold tracking-tight text-white md:text-2xl">
+                      {b.title}
                     </h3>
 
                     <ul className="mt-5 space-y-3.5">
@@ -1036,8 +1040,8 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6">
           {/* Heading */}
           <div className="mx-auto  text-start">
-            <h2 className="bg-gradient-to-r from-white from-30% via-[#73aaff] via-45% to-[#73aaff] bg-clip-text text-[38px] font-extrabold leading-tight tracking-tight text-transparent">
-              Jadwal. Dari asesmen
+            <h2 className="w-fit bg-gradient-to-r from-white from-30% via-[#73aaff] via-45% to-[#73aaff] bg-clip-text text-[38px] font-extrabold leading-tight tracking-tight text-transparent">
+              Jadwal Dari asesmen
               <br />
               sampai mulai kuliah
             </h2>
@@ -1135,13 +1139,12 @@ export default function Home() {
               </p>
 
               <h2 className="bg-gradient-to-r from-white from-30% via-[#73aaff] via-45% to-[#73aaff] bg-clip-text text-[38px] font-extrabold leading-tight tracking-tight text-transparent">
-                Kerja sama resmi, bukan sekadar agen.
+                Kerja sama resmi, bukan sekadar agen
               </h2>
 
               <p className="mt-5 text-[20px] leading-relaxed text-[#FBFBFB]">
                 Program ini lahir dari kesepakatan resmi Dong-eui University dan
-                Karir di Korea. Kamu didampingi
-                di Indonesia dan di Korea.
+                Karir di Korea. Kamu didampingi di Indonesia dan di Korea
               </p>
 
               {/* Penandatangan */}
@@ -1179,13 +1182,11 @@ export default function Home() {
         </div>
       </section>
 
-          {/* FAQ */}
+      {/* FAQ */}
       <section
         id="faq"
         className="relative isolate scroll-mt-24 overflow-hidden bg-[#0C0D0E] py-16 md:py-24"
       >
-        
-
         <div className="mx-auto max-w-6xl px-6">
           {/* Heading */}
           <div className="mx-auto max-w-3xl text-center">
@@ -1229,9 +1230,8 @@ export default function Home() {
         </div>
       </section>
 
-      
       {/* CTA PENUTUP */}
-      <section id="daftar" className="scroll-mt-24 bg-[#0C0D0E]">
+      <section id="daftar" className="scroll-mt-24 overflow-hidden bg-[#0C0D0E]">
         <div className="relative mx-auto max-w-6xl px-6">
           {/* Gambar peta kecil transparan di tengah belakang */}
           <img
@@ -1241,69 +1241,66 @@ export default function Home() {
             loading="lazy"
             className="pointer-events-none absolute left-1/2 top-1/2 w-[30rem] -translate-x-1/2 -translate-y-1/2 object-contain opacity-20 md:w-[34rem] lg:w-[40rem]"
           />
-          {/* Dekorasi latar */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-24 -top-24 h-[28rem] w-[28rem] rounded-full bg-[#1685ff]/30 blur-3xl"
-          />
-         
-         
-
           <div className="relative grid items-end md:min-h-[520px] md:grid-cols-[1.15fr_0.85fr]">
             {/* Teks */}
-            <div className="pb-12 pt-16 md:pb-20 md:pt-24">
-                  <span className="inline-block rounded-sm bg-[#c60e31] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
-                    지금 시작하자
-                  </span>
+            <div className="pb-12 pt-10 md:pb-20 md:pt-24">
+              <span className="inline-block rounded-sm bg-[#c60e31] px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white">
+                지금 시작하자
+              </span>
 
-                  <h2 className="mt-5 bg-gradient-to-r from-white from-30% via-[#73aaff] via-45% to-[#73aaff] bg-clip-text text-[38px] font-extrabold leading-[1.15] tracking-tight text-transparent">
-                    Belajar mandiri di Korea.
-                    <br />
-                    Menuju karir profesional & bisnis global.
-                  </h2>
+              <h2 className="mt-5 bg-gradient-to-r from-white from-30% via-[#73aaff] via-45% to-[#73aaff] bg-clip-text text-[38px] font-extrabold leading-[1.15] tracking-tight text-transparent">
+                Belajar mandiri di Korea
+                <br />
+                Menuju karir profesional & bisnis global
+              </h2>
 
-                  <p className="mt-5 max-w-xl text-[20px] leading-relaxed text-[#FBFBFB]">
-                    Mulai dari asesmen gratis. Kami cek kesiapan bahasa, jurusan
-                    yang cocok, dan rencana biayamu, sebelum kamu memutuskan apa
-                    pun.
-                  </p>
+              <p className="mt-5 max-w-xl text-[20px] leading-relaxed text-[#FBFBFB]">
+                Mulai dari asesmen gratis. Kami cek kesiapan bahasa, jurusan
+                yang cocok, dan rencana biayamu, sebelum kamu memutuskan apa
+                pun
+              </p>
 
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <Link
-                      href="#daftar-asesmen"
-                      className="inline-flex items-center justify-center rounded-full bg-[#c60e31] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-[#c60e31]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#a90b29]"
-                    >
-                      Daftar Asesmen Spring 2027
-                    </Link>
-                    <a
-                      href="https://wa.me/62XXXXXXXXXXX"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-[#25D366]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1ebe5a]"
-                    >
-                      Tanya Admin via WhatsApp
-                      <WhatsAppIcon />
-                    </a>
-                  </div>
-                </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/cek-kelayakan"
+                  className="inline-flex items-center justify-center rounded-full bg-[#c60e31] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-[#c60e31]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#a90b29]"
+                >
+                  Daftar Asesmen Spring 2027
+                </Link>
+                <a
+                  href={waLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-[#25D366]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1ebe5a]"
+                >
+                  Tanya Admin via WhatsApp
+                  <WhatsAppIcon />
+                </a>
+              </div>
+            </div>
 
-                {/* Foto + chip */}
-                <div className="relative mx-auto h-80 w-full max-w-sm self-end md:h-full md:min-h-[460px] md:max-w-none">
-                  {/* Glow di belakang foto */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-gradient-to-t from-[#1685ff]/50 to-transparent blur-2xl md:h-96 md:w-96"
-                  />
+            {/* Foto + chip */}
+            <div className="relative mx-auto h-80 w-full max-w-sm self-end md:h-full md:min-h-[460px] md:max-w-none">
+              {/* Dekorasi latar */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-1/2 top-[58%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#1685ff]/30 blur-3xl md:h-[28rem] md:w-[28rem]"
+              />
+              {/* Glow di belakang foto */}
+              <div
+                aria-hidden="true"
+                className="absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-gradient-to-t from-[#1685ff]/50 to-transparent blur-2xl md:h-96 md:w-96"
+              />
 
-                  <img
-                    src="9.png"
-                    alt="Konsultan Karir di Korea"
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]"
-                  />
+              <img
+                src="9.png"
+                alt="Konsultan Karir di Korea"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]"
+              />
 
-                  {/* Chip kaca */}
-                  {/* <div className="absolute left-0 top-8 hidden items-center gap-3 rounded-sm border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md sm:flex md:-left-4">
+              {/* Chip kaca */}
+              {/* <div className="absolute left-0 top-8 hidden items-center gap-3 rounded-sm border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md sm:flex md:-left-4">
                     <span className="h-2 w-2 animate-pulse rounded-full bg-[#4ade80]" />
                     <div>
                       <p className="text-[11px] uppercase tracking-wide text-white/50">
@@ -1313,7 +1310,7 @@ export default function Home() {
                     </div>
                   </div> */}
 
-                  {/* <div className="absolute bottom-10 right-0 hidden items-center gap-3 rounded-sm border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md sm:flex md:-right-2">
+              {/* <div className="absolute bottom-10 right-0 hidden items-center gap-3 rounded-sm border border-white/15 bg-white/10 px-4 py-3 backdrop-blur-md sm:flex md:-right-2">
                     <span className="h-2 w-2 animate-pulse rounded-full bg-[#c60e31]" />
                     <div>
                       <p className="text-[11px] uppercase tracking-wide text-white/50">
@@ -1322,9 +1319,9 @@ export default function Home() {
                       <p className="text-sm font-bold text-white">November</p>
                     </div>
                   </div> */}
-                </div>
             </div>
           </div>
+        </div>
       </section>
       {/* FOOTER */}
 

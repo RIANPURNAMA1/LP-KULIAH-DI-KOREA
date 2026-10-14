@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import { Card, FinalCta, Heading, PageHero, Section } from "@/components/ui";
 import { city, lecturers, majors } from "@/lib/content";
+import { ogImage } from "@/lib/seo";
 
-export const metadata = { title: "Program & Kampus | Karir di Korea" };
+export const metadata: Metadata = {
+  title: "Program & Kampus",
+  description:
+    "Kenali Dong-eui University di Busan dan dua jurusan S1 berbahasa Inggris: Global Hospitality Management dan Intelligent Computing. Didampingi 4 profesor asal Indonesia.",
+  alternates: { canonical: "/program" },
+  openGraph: { url: "/program", images: [ogImage] },
+};
 
 export default function ProgramPage() {
   return (
