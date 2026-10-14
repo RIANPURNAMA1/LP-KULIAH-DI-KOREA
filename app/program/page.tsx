@@ -23,24 +23,24 @@ export default function ProgramPage() {
             <Card key={c.kr}>
               <p className="text-2xl font-bold grad-text">{c.kr}</p>
               <h3 className="mt-3 text-lg font-semibold">{c.title}</h3>
-              <p className="mt-2 text-slate-300">{c.text}</p>
+              <p className="mt-2 text-foreground/70">{c.text}</p>
             </Card>
           ))}
         </div>
-        <p className="mt-6 text-center font-medium text-sky-300">Kamu nggak sendirian: 4 profesor asal Indonesia ngajar di sini.</p>
+        <p className="mt-6 text-center font-medium text-accent">Kamu nggak sendirian: 4 profesor asal Indonesia ngajar di sini.</p>
       </Section>
 
-      <Section className="bg-ink-soft">
+      <Section className="bg-card-soft">
         <Heading title="Pilih jurusanmu" sub="Dua jurusan, keduanya diajarkan dalam bahasa Inggris." />
         <div className="grid gap-5 md:grid-cols-2">
           {majors.map((m) => (
             <Card key={m.name} className="border-l-4 border-l-crimson">
-              <p className="text-sm text-slate-400">{m.no}</p>
+              <p className="text-sm text-foreground/50">{m.no}</p>
               <h3 className="mt-1 text-2xl font-bold">{m.name}</h3>
-              <p className="mt-3 text-slate-300">{m.desc}</p>
+              <p className="mt-3 text-foreground/70">{m.desc}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {m.tags.map((t) => (
-                  <span key={t} className="rounded-full bg-brand px-3 py-1 text-sm">{t}</span>
+                  <span key={t} className="rounded-full bg-brand px-3 py-1 text-sm text-white">{t}</span>
                 ))}
               </div>
             </Card>
@@ -53,12 +53,12 @@ export default function ProgramPage() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {lecturers.map((l) => (
             <Card key={l.name} className="text-center">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand-light to-brand-glow text-xl font-bold">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand-light to-brand-glow text-xl font-bold text-white">
                 {l.name.split(" ").slice(0, 2).map((w) => w[0]).join("")}
               </div>
               <h3 className="mt-4 font-semibold leading-snug">{l.name}</h3>
-              <p className="mt-1 text-sm text-slate-300">{l.role}</p>
-              <p className="mt-2 text-xs text-sky-300">{l.phd}</p>
+              <p className="mt-1 text-sm text-foreground/70">{l.role}</p>
+              <p className="mt-2 text-xs text-accent">{l.phd}</p>
             </Card>
           ))}
         </div>

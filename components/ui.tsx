@@ -20,7 +20,7 @@ export function Heading({ title, accent, sub, center = true }: { title: string; 
       <h2 className="text-3xl font-bold leading-tight md:text-4xl">
         {title} {accent && <span className="grad-text">{accent}</span>}
       </h2>
-      {sub && <p className="mt-4 text-base leading-relaxed text-slate-300">{sub}</p>}
+      {sub && <p className="mt-4 text-base leading-relaxed text-foreground/70">{sub}</p>}
     </div>
   );
 }
@@ -42,7 +42,7 @@ export function ButtonLink({ href, children, variant = "primary", external, clas
 }
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-2xl border border-white/10 bg-ink-card/70 p-6 ${className}`}>{children}</div>;
+  return <div className={`rounded-2xl border border-line/10 bg-card-soft p-6 ${className}`}>{children}</div>;
 }
 
 export function PageHero({ title, accent, sub }: { title: string; accent: string; sub: string }) {

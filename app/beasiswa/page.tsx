@@ -20,24 +20,24 @@ export default function BeasiswaPage() {
         <Heading title="Beasiswa semester 1" sub="Belajar IELTS serius hari ini = hemat puluhan juta besok." />
         <div className="grid gap-5 md:grid-cols-3">
           {scholarships.map((s, i) => (
-            <Card key={s.score} className={i === 0 ? "border-crimson bg-gradient-to-b from-crimson/20 to-ink-card/70" : ""}>
+            <Card key={s.score} className={i === 0 ? "border-crimson bg-gradient-to-b from-crimson/20 to-card-soft" : ""}>
               <p className="text-xl font-bold">{s.score}</p>
-              <p className="text-sm text-slate-300">{s.alt}</p>
+              <p className="text-sm text-foreground/70">{s.alt}</p>
               <p className={`mt-6 text-6xl font-bold ${i === 0 ? "grad-red" : "grad-text"}`}>{s.pct}</p>
-              <p className="mt-1 text-sm text-slate-400">potongan biaya kuliah</p>
+              <p className="mt-1 text-sm text-foreground/50">potongan biaya kuliah</p>
             </Card>
           ))}
         </div>
       </Section>
 
-      <Section className="bg-ink-soft">
+      <Section className="bg-card-soft">
         <div className="mx-auto max-w-3xl">
           <Heading title="Semester 2 sampai lulus:" accent="IPK yang menentukan." center={false} />
           <Card>
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="font-semibold">Potongan berdasarkan peringkat IPK</p>
-                <p className="mt-1 text-sm text-slate-300">Top 2% hingga Top 50% di angkatanmu.</p>
+                <p className="mt-1 text-sm text-foreground/70">Top 2% hingga Top 50% di angkatanmu.</p>
               </div>
               <p className="text-3xl font-bold grad-text">20% – 100%</p>
             </div>

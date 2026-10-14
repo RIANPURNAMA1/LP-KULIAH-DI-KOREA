@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { nav, waLink } from "@/lib/content";
+import { useLanguage } from "@/lib/i18n";
 
 function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {
   return (
@@ -19,10 +22,24 @@ function WhatsAppIcon({ className = "h-5 w-5" }: { className?: string }) {
   );
 }
 
+function TikTokIcon({ className = "h-5 w-5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M16.5 3c.3 2.1 1.5 3.5 3.5 3.8V9c-1.3 0-2.5-.4-3.5-1.1V15a5.5 5.5 0 1 1-5.5-5.5c.3 0 .6 0 .9.1v2.6a2.9 2.9 0 1 0 2 2.8V3h2.6z" />
+    </svg>
+  );
+}
+
 const socialClass =
   "flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#141414] transition-transform duration-300 hover:-translate-y-0.5";
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-[#141414]">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-14 md:grid-cols-[1.4fr_1fr] md:gap-20 md:py-16">
@@ -38,24 +55,36 @@ export default function Footer() {
           </p>
 
           <p className="mt-5 max-w-md text-[15px] font-medium leading-relaxed text-white">
-            Belajar mandiri di Korea. Menuju karir profesional &amp; bisnis
-            global.
+            {t(
+              "Belajar mandiri di Korea. Menuju karir profesional & bisnis global.",
+            )}
           </p>
 
           <h3 className="mt-8 text-lg font-bold text-white">
             PT Indonesia Sukses Mendunia
           </h3>
           <p className="mt-2 max-w-md text-[15px] leading-relaxed text-white/50">
-            Mitra resmi Dong-eui University, Busan
+            {t("Mitra resmi Dong-eui University, Busan")}
           </p>
 
-          <h3 className="mt-8 text-lg font-bold text-white">Ikuti Kami</h3>
+          <h3 className="mt-8 text-lg font-bold text-white">
+            {t("Ikuti Kami")}
+          </h3>
           <div className="mt-4 flex gap-3">
             <a
-              href={waLink()}
+              href="https://www.tiktok.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp"
+              aria-label="TikTok"
+              className={socialClass}
+            >
+              <TikTokIcon />
+            </a>
+            <a
+              href="https://whatsapp.com/channel"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Channel WhatsApp"
               className={socialClass}
             >
               <WhatsAppIcon />
@@ -80,30 +109,14 @@ export default function Footer() {
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
               </svg>
             </a>
-            <a
-              href="https://facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className={socialClass}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-5 w-5"
-                aria-hidden="true"
-              >
-                <path d="M14 8h2.5V5H14a3.5 3.5 0 0 0-3.5 3.5V10H8v3h2.5v7h3v-7H16l.5-3h-3V8.6c0-.3.2-.6.5-.6z" />
-              </svg>
-            </a>
           </div>
         </div>
 
         {/* Kanan */}
         <div>
-          <h3 className="text-xl font-bold text-white">Hubungi Kami</h3>
+          <h3 className="text-xl font-bold text-white">{t("Hubungi Kami")}</h3>
           <p className="mt-2 text-[15px] leading-relaxed text-white/50">
-            Pertanyaan soal program Spring 2027? Admin siap membantu.
+            {t("Pertanyaan soal program Spring 2027? Admin siap membantu.")}
           </p>
           <a
             href={waLink()}
@@ -111,11 +124,11 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="mt-1 inline-flex items-center gap-2 font-bold text-white transition-colors hover:text-[#8fbaff]"
           >
-            Chat Admin di WhatsApp
+            {t("Chat Admin di WhatsApp")}
           </a>
           <p className="mt-1 font-bold text-white">karirdikorea.com</p>
 
-          <h3 className="mt-8 text-xl font-bold text-white">Halaman</h3>
+          <h3 className="mt-8 text-xl font-bold text-white">{t("Halaman")}</h3>
           <ul className="mt-3 space-y-2 text-[15px] text-white/50">
             {nav.map((n) => (
               <li key={n.href}>
@@ -123,7 +136,7 @@ export default function Footer() {
                   href={n.href}
                   className="transition-colors hover:text-white"
                 >
-                  {n.label}
+                  {t(n.label)}
                 </Link>
               </li>
             ))}
@@ -132,7 +145,7 @@ export default function Footer() {
                 href="/cek-kelayakan"
                 className="transition-colors hover:text-white"
               >
-                Cek Kelayakan
+                {t("Cek Kelayakan")}
               </Link>
             </li>
           </ul>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { PageHero, Section } from "@/components/ui";
 import { waLink } from "@/lib/content";
 
-const field = "mt-2 w-full rounded-xl border border-white/15 bg-ink px-4 py-3 text-white placeholder:text-slate-500 focus:border-brand-glow focus:outline-none";
+const field = "mt-2 w-full rounded-xl border border-line/15 bg-card-soft px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-brand-glow focus:outline-none";
 
 export default function CekKelayakanPage() {
   const [f, setF] = useState({ nama: "", wa: "", jurusan: "Global Hospitality Management", bahasa: "" });
@@ -20,7 +20,7 @@ export default function CekKelayakanPage() {
     <>
       <PageHero title="Cek kelayakan" accent="gratis." sub="Kami cek kesiapan bahasa, jurusan yang cocok, dan rencana biayamu. Syarat minimal IELTS 5.5." />
       <Section>
-        <form onSubmit={submit} className="mx-auto max-w-xl space-y-5 rounded-2xl border border-white/10 bg-ink-card/70 p-6 md:p-8">
+        <form onSubmit={submit} className="mx-auto max-w-xl space-y-5 rounded-2xl border border-line/10 bg-card-soft p-6 md:p-8">
           <label className="block text-sm font-medium">Nama lengkap
             <input required className={field} value={f.nama} onChange={set("nama")} placeholder="Nama sesuai paspor" />
           </label>
@@ -39,7 +39,7 @@ export default function CekKelayakanPage() {
           <button type="submit" className="w-full rounded-full bg-crimson py-3 font-semibold transition hover:bg-crimson-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
             Daftar Asesmen Spring 2027
           </button>
-          <p className="text-center text-xs text-slate-400">Data dikirim lewat WhatsApp ke admin. Tidak disimpan di situs ini.</p>
+          <p className="text-center text-xs text-foreground/50">Data dikirim lewat WhatsApp ke admin. Tidak disimpan di situs ini.</p>
         </form>
       </Section>
     </>

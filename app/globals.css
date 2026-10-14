@@ -4,19 +4,80 @@
 
 html { scroll-behavior: smooth; }
 html.lenis, html.lenis body { scroll-behavior: auto !important; }
-body { @apply bg-ink text-white antialiased; }
+
+/* ---------- Tema (light default, dark via .dark) ---------- */
+:root {
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-soft: 246 248 251;
+  --elevated: 255 255 255;
+  --chip: 238 242 247;
+  --accent: 37 99 235;
+  --line: 15 23 42;
+}
+
+.dark {
+  --background: 12 13 14;
+  --foreground: 255 255 255;
+  --card: 0 0 0;
+  --card-soft: 17 17 17;
+  --elevated: 5 5 16;
+  --chip: 26 27 30;
+  --accent: 143 186 255;
+  --line: 255 255 255;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Heading tiap section pakai Mona Sans; sisanya tetap Plus Jakarta Sans */
+h1, h2, h3, h4 {
+  font-family: "Mona Sans Variable", var(--font-jakarta), system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}
 
 @layer utilities {
   .grad-text {
-    @apply bg-gradient-to-r from-sky-300 via-blue-400 to-indigo-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-500 bg-clip-text text-transparent dark:from-sky-300 dark:via-blue-400 dark:to-indigo-400;
   }
   .grad-red {
-    @apply bg-gradient-to-r from-rose-400 to-crimson bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-rose-500 to-crimson bg-clip-text text-transparent dark:from-rose-400 dark:to-crimson;
   }
 }
 
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
+
+/* ---------- Bar chart 3D ---------- */
+.bar-3d { position: relative; }
+.bar-3d::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--d));
+  left: 0;
+  width: 100%;
+  height: var(--d);
+  background: var(--bar-top);
+  transform-origin: bottom left;
+  transform: skewX(45deg);
+}
+.bar-3d::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc(-1 * var(--d));
+  width: var(--d);
+  height: 100%;
+  background: var(--bar-side);
+  transform-origin: left top;
+  transform: skewY(-45deg);
+}
 
 @keyframes hero-float {
   0%, 100% { transform: translateY(0); }

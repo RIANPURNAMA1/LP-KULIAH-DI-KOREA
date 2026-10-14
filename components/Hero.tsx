@@ -6,6 +6,7 @@ import { ButtonLink } from "@/components/ui";
 import { heroStats, waLink } from "@/lib/content";
 import { useHeroParallax } from "@/hooks/useHeroParallax";
 import { CountUp } from "@/components/CountUp";
+import { useLanguage } from "@/lib/i18n";
 
 /**
  * mx / my : pergeseran (px) mengikuti mouse
@@ -19,6 +20,7 @@ const layer = (mx = 0, my = 0, sy = 0): CSSProperties => ({
 
 export function Hero() {
   const heroRef = useHeroParallax<HTMLElement>();
+  const { t } = useLanguage();
 
   return (
     <section
@@ -61,22 +63,22 @@ export function Hero() {
           className="relative z-20 max-w-[570px] pb-12 pt-8 md:pb-20 md:pt-0"
           style={layer(4, 3, 0)}
         >
-          <h1 className="text-[clamp(2.65rem,5vw,4.4rem)] font-extrabold leading-[1.04] tracking-[-0.045em] text-white">
-            Kuliah S1
+          <h1 className="font-sans text-[clamp(2.65rem,5vw,4.4rem)] font-extrabold leading-[1.04] tracking-[-0.045em] text-white">
+            {t("Kuliah S1")}
             <br />
-            di Korea
+            {t("di Korea")}
             <br />
             <span className="mt-1 inline-block bg-gradient-to-r from-white via-[#ffb2c1] to-[#c60e31] bg-clip-text text-transparent">
-              Bayar dari
+              {t("Bayar dari")}
               <br />
-              gaji sendiri
+              {t("gaji sendiri")}
             </span>
           </h1>
 
           <p className="mt-6 max-w-[490px] text-base leading-relaxed text-white/85 md:text-lg">
-            Kuliah berbahasa Inggris di Busan, peluang beasiswa hingga 100%,
-            kerja part-time legal, dan pendampingan menuju karier profesional
-            atau bisnis global
+            {t(
+              "Kuliah berbahasa Inggris di Busan, peluang beasiswa hingga 100%, kerja part-time legal, dan pendampingan menuju karier profesional atau bisnis global",
+            )}
           </p>
 
           {/* CTA buttons */}
@@ -106,7 +108,7 @@ export function Hero() {
                 >
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                 </svg>
-                Konsultasi Gratis
+                {t("Konsultasi Gratis")}
               </span>
             </ButtonLink>
 
@@ -115,7 +117,7 @@ export function Hero() {
               href="/cek-kelayakan"
               className="inline-flex items-center justify-center rounded-full bg-[#c60e31] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#c60e31]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#a90b29]"
             >
-              Cek Kelayakan Saya
+              {t("Cek Kelayakan Saya")}
             </ButtonLink>
           </div>
 
@@ -140,7 +142,9 @@ export function Hero() {
             </p>
 
             <p className="pl-1 text-xs leading-relaxed text-white/70">
-              Asesmen awal gratis · Persyaratan bahasa sesuai ketentuan program
+              {t(
+                "Asesmen awal gratis · Persyaratan bahasa sesuai ketentuan program",
+              )}
             </p>
           </div>
         </div>
@@ -190,7 +194,7 @@ export function Hero() {
                     부산에서 공부하자!
                   </p>
                   <p className="mt-1 text-xs text-white/75">
-                    Ayo kuliah di Busan
+                    {t("Ayo kuliah di Busan")}
                   </p>
                 </div>
               </div>
@@ -240,11 +244,11 @@ export function Hero() {
                 } ${index === 4 ? "col-span-2 md:col-span-1" : ""}`}
               >
                 <dd className="bg-gradient-to-b from-white to-[#9dc4ff] bg-clip-text text-2xl font-extrabold tracking-tight text-transparent md:text-[1.75rem]">
-                  <CountUp value={s.value} delay={index * 100} />
+                  <CountUp value={t(s.value)} delay={index * 100} />
                 </dd>
 
                 <dt className="mt-2 text-[11px] font-medium uppercase leading-relaxed tracking-wide text-white/55 sm:text-xs">
-                  {s.label}
+                  {t(s.label)}
                 </dt>
               </div>
             ))}

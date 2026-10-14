@@ -5,9 +5,13 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 // Pastikan Anda menyesuaikan path import nav jika diperlukan
-import { nav } from "@/lib/content"; 
+import { nav } from "@/lib/content";
+import ThemeToggle from "@/components/ThemeToggle";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Navbar() {
+  const { t } = useLanguage();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -22,20 +26,27 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled ? "border-white/5 bg-[0C0D0E]/60 backdrop-blur-md" : "border-white/5 bg-[#050510]"
+        scrolled ? "border-line/10 bg-background/70 backdrop-blur-md" : "border-line/10 bg-elevated"
       }`}
-      style={{ fontFamily: "Arial, Helvetica, sans-serif" }}
     >
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6">
         
         {/* LOGO AREA */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-white text-xl tracking-tight" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center gap-2 font-bold text-foreground text-xl tracking-tight" onClick={() => setOpen(false)}>
           <Image
             src="/LOGO%20KARIR%20DI%20KOREA.png"
             alt="Karir di Korea"
             width={140}
             height={40}
-            className="h-10 w-auto"
+            className="h-10 w-auto hidden dark:block"
+            priority
+          />
+          <Image
+            src="/LOGO2.png"
+            alt="Karir di Korea"
+            width={140}
+            height={40}
+            className="h-10 w-auto block dark:hidden"
             priority
           />
         </Link>
@@ -47,10 +58,10 @@ export default function Navbar() {
               <Link
                 href={n.href}
                 className={`text-sm font-medium transition-colors flex items-center gap-1 ${
-                  pathname === n.href ? "text-white" : "text-gray-400 hover:text-white"
+                  pathname === n.href ? "text-foreground" : "text-foreground/60 hover:text-foreground"
                 }`}
               >
-                {n.label}
+                {t(n.label)}
                 {/* Menambahkan panah dropdown tiruan seperti di referensi untuk menu tertentu jika diperlukan */}
                 {/* Anda bisa menambahkan kondisi n.hasDropdown di objek nav Anda */}
                 {n.label === "Learning Programs" && (
@@ -65,20 +76,9 @@ export default function Navbar() {
 
         {/* RIGHT ACTION BUTTONS */}
         <div className="hidden md:flex items-center gap-4">
-          {/* Ikon Brightness (Tiruan) */}
-          <button className="text-gray-400 hover:text-white p-2">
-             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2"></path>
-                <path d="M12 20v2"></path>
-                <path d="M4.93 4.93l1.41 1.41"></path>
-                <path d="M17.66 17.66l1.41 1.41"></path>
-                <path d="M2 12h2"></path>
-                <path d="M20 12h2"></path>
-                <path d="M6.34 17.66l-1.41 1.41"></path>
-                <path d="M19.07 4.93l-1.41 1.41"></path>
-             </svg>
-          </button>
+          {/* Toggle tema terang/gelap */}
+          <LanguageToggle />
+          <ThemeToggle />
 
           {/* Tombol Biru Solid seperti "Login" */}
           <Link 
@@ -91,34 +91,38 @@ export default function Navbar() {
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
-            <span className="relative">Cek Kelayakan</span>
+            <span className="relative">{t("Cek Kelayakan")}</span>
           </Link>
         </div>
 
-        {/* MOBILE MENU BUTTON */}
-        <button
-          type="button"
-          aria-label="Buka menu"
-          aria-expanded={open}
-          onClick={() => setOpen(!open)}
-          className="flex h-10 w-10 items-center justify-center text-gray-300 md:hidden"
-        >
-          <span className="text-2xl leading-none">{open ? "✕" : "☰"}</span>
-        </button>
+        {/* MOBILE CONTROLS */}
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageToggle />
+          <ThemeToggle />
+          <button
+            type="button"
+            aria-label={t("Buka menu")}
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+            className="flex h-10 w-10 items-center justify-center text-foreground/70"
+          >
+            <span className="text-2xl leading-none">{open ? "✕" : "☰"}</span>
+          </button>
+        </div>
       </div>
 
       {/* MOBILE DROPDOWN MENU */}
       {open && (
-        <div className={`border-t px-6 py-4 md:hidden transition-colors duration-300 ${scrolled ? "border-white/10 bg-[#050510]/60 backdrop-blur-md" : "border-white/10 bg-[#050510]"}`}>
+        <div className={`border-t px-6 py-4 md:hidden transition-colors duration-300 ${scrolled ? "border-line/10 bg-elevated/80 backdrop-blur-md" : "border-line/10 bg-elevated"}`}>
           <ul className="flex flex-col gap-2">
             {nav.map((n) => (
               <li key={n.href}>
                 <Link 
                   href={n.href} 
                   onClick={() => setOpen(false)} 
-                  className="block py-3 text-base text-gray-300 hover:text-white border-b border-white/5"
+                  className="block py-3 text-base text-foreground/70 hover:text-foreground border-b border-line/10"
                 >
-                  {n.label}
+                  {t(n.label)}
                 </Link>
               </li>
             ))}
@@ -135,7 +139,7 @@ export default function Navbar() {
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
-              <span className="relative">Cek Kelayakan</span>
+              <span className="relative">{t("Cek Kelayakan")}</span>
             </Link>
           </div>
         </div>

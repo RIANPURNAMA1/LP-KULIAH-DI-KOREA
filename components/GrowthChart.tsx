@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 type Point = { year: string; value: number };
 
@@ -47,7 +47,7 @@ export function GrowthChart({ data }: { data: Point[] }) {
                     ? "translate-y-0 opacity-100"
                     : "translate-y-1 opacity-0"
                 } ${
-                  isLast ? "font-bold text-[#c60e31]" : "font-medium text-white/60"
+                  isLast ? "font-bold text-[#c60e31]" : "font-medium text-foreground/60"
                 }`}
                 style={{ transitionDelay: `${index * 100 + 250}ms` }}
               >
@@ -56,15 +56,20 @@ export function GrowthChart({ data }: { data: Point[] }) {
 
               <div className="flex h-48 w-full items-end">
                 <div
-                  className={`w-full origin-bottom rounded-t-lg transition-all duration-[900ms] ease-out ${
+                  className={`bar-3d w-full transition-all duration-[900ms] ease-out ${
                     isLast
                       ? "bg-gradient-to-t from-[#8f0a24] to-[#c60e31] shadow-lg shadow-[#c60e31]/30"
                       : "bg-gradient-to-t from-[#033378] to-[#3977c5]"
                   }`}
-                  style={{
-                    height: visible ? `${percentage}%` : "0%",
-                    transitionDelay: `${index * 100}ms`,
-                  }}
+                  style={
+                    {
+                      height: visible ? `${percentage}%` : "0%",
+                      transitionDelay: `${index * 100}ms`,
+                      "--d": "8px",
+                      "--bar-top": isLast ? "#e34a68" : "#6aa0e0",
+                      "--bar-side": isLast ? "#6d0719" : "#012a63",
+                    } as CSSProperties
+                  }
                 />
               </div>
             </div>
@@ -72,7 +77,7 @@ export function GrowthChart({ data }: { data: Point[] }) {
         })}
       </div>
 
-      <div className="mt-3 grid grid-cols-5 gap-2 border-t border-white/10 pt-3 sm:gap-4">
+      <div className="mt-3 grid grid-cols-5 gap-2 border-t border-line/10 pt-3 sm:gap-4">
         {data.map((s, index) => {
           const isLast = index === data.length - 1;
 
@@ -81,7 +86,7 @@ export function GrowthChart({ data }: { data: Point[] }) {
               key={s.year}
               className={`text-center text-[11px] transition-opacity duration-700 sm:text-xs ${
                 visible ? "opacity-100" : "opacity-0"
-              } ${isLast ? "font-semibold text-white" : "text-white/50"}`}
+              } ${isLast ? "font-semibold text-foreground" : "text-foreground/50"}`}
               style={{ transitionDelay: `${index * 100 + 300}ms` }}
             >
               {s.year}
