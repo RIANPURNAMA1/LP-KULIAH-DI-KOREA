@@ -72,7 +72,7 @@ export default function Footer() {
           </h3>
           <div className="mt-4 flex gap-3">
             <a
-              href="https://www.tiktok.com/"
+              href="https://www.tiktok.com/@karirdikorea?is_from_webapp=1&sender_device=pc"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok"
@@ -90,7 +90,7 @@ export default function Footer() {
               <WhatsAppIcon />
             </a>
             <a
-              href="https://instagram.com/"
+              href="https://www.instagram.com/karirdikorea?utm_source=ig_web_button_share_sheet&srtk=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
