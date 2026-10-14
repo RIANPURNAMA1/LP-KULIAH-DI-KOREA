@@ -475,25 +475,6 @@ export default function HomeContent() {
                   <p className="mt-3 flex-1 text-sm leading-7 text-foreground/50">
                     {t(c.text)}
                   </p>
-
-                  <a
-                    href="#"
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#0E69FD] transition-transform duration-300 hover:gap-3"
-                  >
-                    View Details
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-4 w-4"
-                      aria-hidden="true"
-                    >
-                      <path d="M5 12h14M13 6l6 6-6 6" />
-                    </svg>
-                  </a>
                 </div>
               </article>
             ))}

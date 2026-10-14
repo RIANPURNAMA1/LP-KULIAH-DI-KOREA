@@ -191,10 +191,10 @@ export function Hero() {
               <div className="flex items-center gap-3">
                 <div>
                   <p className="text-sm font-bold tracking-wide text-white md:text-base">
-                    부산에서 공부하자!
+                    {t("Ayo kuliah di Korea!")}
                   </p>
                   <p className="mt-1 text-xs text-white/75">
-                    {t("Ayo kuliah di Busan")}
+                    부산에서 공부하자!
                   </p>
                 </div>
               </div>

@@ -44,6 +44,7 @@ export const translations: Record<string, string> = {
   "Asesmen awal gratis · Persyaratan bahasa sesuai ketentuan program":
     "Free initial assessment · Language requirements per program rules",
   "Ayo kuliah di Busan": "Let's study in Busan",
+  "Ayo kuliah di Korea!": "Let's study in Korea!",
   "≈ 2 juta ₩": "≈ ₩2 million",
   "estimasi gaji part-time / bulan": "estimated part-time wage / month",
   "beasiswa maksimal": "maximum scholarship",
