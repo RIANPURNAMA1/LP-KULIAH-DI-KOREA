@@ -275,7 +275,7 @@ export default function PendaftaranPage() {
               Formulir Pendaftaran
             </span>
             <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-              Daftar Kuliah di <span className="grad-text">Dong-Eui University.</span>
+              Daftar Kuliah di Korea <span className="grad-text">Dong-Eui University.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
               Formulir ini digunakan untuk pendataan awal calon mahasiswa yang berminat melanjutkan pendidikan di
