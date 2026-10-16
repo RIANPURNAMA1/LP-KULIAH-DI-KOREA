@@ -1,6 +1,6 @@
 export const WA_NUMBER = process.env.NEXT_PUBLIC_WA_NUMBER ?? "6281234567890";
 
-export function waLink(text = "Halo Admin Karir di Korea, saya ingin cek kelayakan program Dong-eui Spring 2027.") {
+export function waLink(text = "Halo Admin Karir di Korea, saya ingin mendaftar program Dong-eui Spring 2027.") {
   return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 

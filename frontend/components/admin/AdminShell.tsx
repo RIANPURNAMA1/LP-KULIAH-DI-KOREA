@@ -159,7 +159,7 @@ const navGroups = navGroupOrder
 
 // Judul halaman yang lebih lengkap dari label menu.
 const pageTitles: Array<[prefix: string, title: string]> = [
-  ["/admin/pendaftar", "Pendaftar Asesmen"],
+  ["/admin/pendaftar", "Data Pendaftar"],
   ["/admin/jurusan", "Jurusan"],
   ["/admin/beasiswa", "Beasiswa"],
   ["/admin/dosen", "Dosen"],

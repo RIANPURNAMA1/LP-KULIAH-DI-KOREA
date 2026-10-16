@@ -1201,17 +1201,17 @@ export default function HomeContent() {
 
               <p className="mt-5 max-w-xl text-[20px] leading-relaxed text-foreground">
                 {t(
-                  "Mulai dari asesmen gratis. Kami cek kesiapan bahasa, jurusan yang cocok, dan rencana biayamu, sebelum kamu memutuskan apa pun",
+                  "Mulai dari pendaftaran gratis. Lengkapi data dirimu, dan tim kami bantu proses selanjutnya menuju kuliah di Korea",
                 )}
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button
-                  type="button"
+                <Link
+                  href="/pendaftaran"
                   className="inline-flex items-center justify-center rounded-full bg-[#c60e31] px-8 py-4 text-sm font-bold text-white shadow-lg shadow-[#c60e31]/20 transition-all duration-300"
                 >
-                  {t("Daftar Asesmen Spring 2027")}
-                </button>
+                  {t("Daftar Sekarang")}
+                </Link>
                 <a
                   href={waLink()}
                   target="_blank"

@@ -9,7 +9,7 @@ Route::get('/health', fn () => response()->json(['status' => 'ok']));
 // Autentikasi admin.
 Route::post('/login', [AuthController::class, 'login']);
 
-// Formulir publik "Cek Kelayakan" boleh menyimpan tanpa login.
+// Formulir publik "Formulir Pendaftaran" boleh menyimpan tanpa login.
 Route::post('/assessments', [AssessmentController::class, 'store']);
 
 // Rute dashboard admin wajib login.

@@ -35,12 +35,30 @@ export function ScrollReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0, rootMargin: "0px 0px -64px 0px" },
     );
+
+    const isInViewport = (el: HTMLElement) => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    };
+
+    const revealIfVisible = (el: HTMLElement) => {
+      if (el.classList.contains("is-visible")) return;
+      // Konten yang sudah terlihat langsung ditampilkan agar tidak "hilang"
+      // ketika langkah form diganti atau animasi gagal terpicu.
+      if (isInViewport(el)) {
+        el.classList.add("is-visible");
+        observer.unobserve(el);
+      }
+    };
 
     const observeElement = (el: HTMLElement) => {
       if (el.classList.contains("is-visible")) return;
-      if ((el as HTMLElement & { __revealObserved?: boolean }).__revealObserved) return;
+      if ((el as HTMLElement & { __revealObserved?: boolean }).__revealObserved) {
+        revealIfVisible(el);
+        return;
+      }
       (el as HTMLElement & { __revealObserved?: boolean }).__revealObserved = true;
       const parent = el.parentElement;
       if (parent) {
@@ -48,6 +66,7 @@ export function ScrollReveal() {
         el.style.transitionDelay = `${Math.min(index, 6) * 60}ms`;
       }
       observer.observe(el);
+      revealIfVisible(el);
     };
 
     const scan = () => {
@@ -58,11 +77,15 @@ export function ScrollReveal() {
 
     scan();
 
-    // Konten yang dirender setelah mount (mis. langkah asesmen) juga harus direveal.
+    // Konten yang dirender setelah mount (mis. langkah form) juga harus direveal.
     const mutations = new MutationObserver(() => scan());
     mutations.observe(document.body, { childList: true, subtree: true });
 
+    // Jaring pengaman: pastikan tidak ada teks yang tetap tersembunyi.
+    const safety = window.setInterval(scan, 700);
+
     return () => {
+      window.clearInterval(safety);
       mutations.disconnect();
       observer.disconnect();
     };

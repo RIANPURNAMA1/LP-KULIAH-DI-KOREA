@@ -82,7 +82,7 @@ export default function Navbar() {
 
           {/* Tombol Biru Solid seperti "Login" */}
           <Link 
-              href="#daftar" 
+              href="/pendaftaran" 
             className="group relative overflow-hidden flex items-center gap-2 rounded-full bg-gradient-to-r from-[#c60e31] to-[#8f0a24] px-5 py-2 text-sm font-semibold text-white transition-colors hover:from-[#b00c2c] hover:to-[#7c0820] shadow-[0_0_10px_rgba(198,14,49,0.25)]"
           >
             <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
@@ -91,7 +91,7 @@ export default function Navbar() {
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
-            <span className="relative">{t("Cek Kelayakan")}</span>
+            <span className="relative">{t("Pendaftaran")}</span>
           </Link>
         </div>
 
@@ -130,7 +130,7 @@ export default function Navbar() {
           
           <div className="mt-6 flex flex-col gap-3">
             <Link 
-            href="#daftar" 
+            href="/pendaftaran" 
               onClick={() => setOpen(false)} 
               className="group relative overflow-hidden flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#c60e31] to-[#8f0a24] py-3 text-center text-sm font-semibold text-white"
             >
@@ -139,7 +139,7 @@ export default function Navbar() {
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
-              <span className="relative">{t("Cek Kelayakan")}</span>
+              <span className="relative">{t("Pendaftaran")}</span>
             </Link>
           </div>
         </div>

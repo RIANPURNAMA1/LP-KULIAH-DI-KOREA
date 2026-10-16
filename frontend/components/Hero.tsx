@@ -114,10 +114,10 @@ export function Hero() {
 
             {/* Eligibility CTA */}
             <ButtonLink
-              href="/cek-kelayakan"
+              href="/pendaftaran"
               className="inline-flex items-center justify-center rounded-full bg-[#c60e31] px-6 py-3 text-sm font-bold text-white shadow-lg shadow-[#c60e31]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#a90b29]"
             >
-              {t("Cek Kelayakan Saya")}
+              {t("Daftar Sekarang")}
             </ButtonLink>
           </div>
 
@@ -143,7 +143,7 @@ export function Hero() {
 
             <p className="pl-1 text-xs leading-relaxed text-white/70">
               {t(
-                "Asesmen awal gratis · Persyaratan bahasa sesuai ketentuan program",
+                "Pendaftaran gratis · Persyaratan bahasa sesuai ketentuan program",
               )}
             </p>
           </div>

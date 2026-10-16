@@ -111,6 +111,13 @@ details > summary::-webkit-details-marker { display: none; }
   transform: none;
 }
 
+/* Konten yang perlu selalu tampil (mis. halaman formulir multi-langkah)
+   bisa menonaktifkan animasi reveal agar teks tidak tersembunyi. */
+.reveal-ready main .no-reveal :is(h1, h2, h3, h4, p, article, li, dd, dt, details, blockquote, figure) {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; animation: none !important; }

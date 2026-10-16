@@ -142,10 +142,10 @@ export default function Footer() {
             ))}
             <li>
               <Link
-                href="/cek-kelayakan"
+                href="/pendaftaran"
                 className="transition-colors hover:text-white"
               >
-                {t("Cek Kelayakan")}
+                {t("Pendaftaran")}
               </Link>
             </li>
           </ul>

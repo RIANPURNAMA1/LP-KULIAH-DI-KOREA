@@ -10,7 +10,7 @@ export type Registration = {
   bahasa: string | null;
   tanggal: string; // ISO date
   status: RegistrationStatus;
-  sumber: "web-cek-kelayakan" | "langsung";
+  sumber: "web-pendaftaran" | "langsung";
 };
 
 export type Major = {
@@ -58,7 +58,7 @@ export const registrations: Registration[] = [
     bahasa: "IELTS 6.0",
     tanggal: "2026-10-10",
     status: "baru",
-    sumber: "web-cek-kelayakan",
+    sumber: "web-pendaftaran",
   },
   {
     id: "R-002",
@@ -68,7 +68,7 @@ export const registrations: Registration[] = [
     bahasa: "TOEFL iBT 83",
     tanggal: "2026-10-11",
     status: "di-hubungi",
-    sumber: "web-cek-kelayakan",
+    sumber: "web-pendaftaran",
   },
   {
     id: "R-003",
@@ -78,7 +78,7 @@ export const registrations: Registration[] = [
     bahasa: null,
     tanggal: "2026-10-12",
     status: "baru",
-    sumber: "web-cek-kelayakan",
+    sumber: "web-pendaftaran",
   },
   {
     id: "R-004",
@@ -88,7 +88,7 @@ export const registrations: Registration[] = [
     bahasa: "IELTS 7.0",
     tanggal: "2026-10-13",
     status: "diterima",
-    sumber: "web-cek-kelayakan",
+    sumber: "web-pendaftaran",
   },
   {
     id: "R-005",
@@ -98,7 +98,7 @@ export const registrations: Registration[] = [
     bahasa: "IELTS 5.5",
     tanggal: "2026-10-14",
     status: "baru",
-    sumber: "web-cek-kelayakan",
+    sumber: "web-pendaftaran",
   },
 ];
 
@@ -180,6 +180,6 @@ export const siteSettings: SiteSetting[] = [
 
 export const adminNav = [
   { href: "/admin", label: "Dashboard", icon: "home" as const },
-  { href: "/admin/pendaftar", label: "Pendaftar Asesmen", icon: "users" as const },
+  { href: "/admin/pendaftar", label: "Data Pendaftar", icon: "users" as const },
   { href: "/admin/pengaturan", label: "Pengaturan", icon: "settings" as const },
 ];

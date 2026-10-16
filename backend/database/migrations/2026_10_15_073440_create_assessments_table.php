@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('jurusan');
             $table->string('bahasa')->nullable();
             $table->enum('status', ['baru', 'di-hubungi', 'diterima', 'ditolak'])->default('baru');
-            $table->string('sumber')->default('web-cek-kelayakan');
+            $table->string('sumber')->default('web-pendaftaran');
             $table->json('answers')->nullable();
             $table->json('rekomendasi')->nullable();
             $table->timestamps();

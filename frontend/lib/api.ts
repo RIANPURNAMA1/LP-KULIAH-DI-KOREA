@@ -1,4 +1,4 @@
-import type { Answers, Recommendation } from "@/lib/cek-kelayakan";
+import type { Answers } from "@/lib/pendaftaran";
 import type { RegistrationStatus } from "@/lib/admin-data";
 import { clearSession, getToken, type AdminUser } from "@/lib/auth";
 
@@ -14,6 +14,8 @@ export class ApiError extends Error {
   }
 }
 
+export type AssessmentSource = "web-pendaftaran" | "langsung";
+
 export type Assessment = {
   id: number;
   kode: string;
@@ -22,9 +24,9 @@ export type Assessment = {
   jurusan: string;
   bahasa: string | null;
   status: RegistrationStatus;
-  sumber: "web-cek-kelayakan" | "langsung";
+  sumber: AssessmentSource;
   answers: Answers | null;
-  rekomendasi: Recommendation | null;
+  rekomendasi: Record<string, unknown> | null;
   created_at: string;
   updated_at: string;
 };
@@ -35,8 +37,8 @@ export type CreateAssessmentPayload = {
   jurusan: string;
   bahasa?: string | null;
   answers?: Answers;
-  rekomendasi?: Recommendation;
-  sumber?: "web-cek-kelayakan" | "langsung";
+  rekomendasi?: Record<string, unknown>;
+  sumber?: AssessmentSource;
 };
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {

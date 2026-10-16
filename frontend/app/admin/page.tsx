@@ -129,7 +129,7 @@ export default function AdminDashboard() {
     <div className="flex flex-col gap-6">
       <SectionHeader
         title="Ringkasan"
-        desc="Pantau perkembangan pendaftaran asesmen Spring 2027 secara ringkas."
+        desc="Pantau perkembangan pendaftaran Spring 2027 secara ringkas."
         actions={
           <>
             <span className="flex items-center gap-2 text-xs text-foreground/60">
@@ -187,7 +187,7 @@ export default function AdminDashboard() {
             <Card>
               <div className="mb-5">
                 <h2 className="text-lg font-semibold">Pendaftar per Jurusan</h2>
-                <p className="text-sm text-foreground/70">Minat jurusan dari hasil asesmen.</p>
+                <p className="text-sm text-foreground/70">Minat jurusan pendaftar.</p>
               </div>
               {majorData.length === 0 ? (
                 <p className="py-10 text-center text-sm text-foreground/60">Belum ada data.</p>
@@ -203,7 +203,7 @@ export default function AdminDashboard() {
         <div className="mb-4 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center">
           <div>
             <h2 className="text-lg font-semibold">Pendaftar Terbaru</h2>
-            <p className="text-sm text-foreground/70">5 entri terakhir dari formulir cek kelayakan.</p>
+            <p className="text-sm text-foreground/70">5 entri terakhir dari formulir pendaftaran.</p>
           </div>
         </div>
         {loading ? (

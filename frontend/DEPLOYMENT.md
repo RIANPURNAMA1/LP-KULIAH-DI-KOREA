@@ -130,7 +130,7 @@ sudo mysql
 
 ```sql
 CREATE DATABASE kuliahdikorea_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'kdk'@'localhost' IDENTIFIED BY 'GANTI_PASSWORD_DB_KUAT';
+CREATE USER 'kdk'@'localhost' IDENTIFIED BY 'PasswordKuat123!';
 GRANT ALL PRIVILEGES ON kuliahdikorea_db.* TO 'kdk'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
@@ -164,7 +164,7 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=kuliahdikorea_db
 DB_USERNAME=kdk
-DB_PASSWORD=GANTI_PASSWORD_DB_KUAT
+DB_PASSWORD=PasswordKuat123!
 
 SESSION_DRIVER=database
 QUEUE_CONNECTION=database
@@ -196,7 +196,7 @@ php artisan optimize                 # cache config + route + view
 ### 5.4 Permission storage
 
 ```bash
-sudo chown -R deploy:www-data storage bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
 sudo chmod -R 775 storage bootstrap/cache
 ```
 
@@ -380,7 +380,7 @@ Pastikan DNS sudah mengarah ke IP VPS (langkah 10) sebelum menjalankan ini.
 
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d kuliahdikorea.com -d www.kuliahdikorea.com -d api.kuliahdikorea.com
+sudo certbot --nginx -d api.kuliahdikorea.com
 ```
 
 Certbot memasang HTTPS + redirect HTTP→HTTPS + auto-renew. Uji:
@@ -552,3 +552,6 @@ chmod +x ~/deploy.sh
 - [ ] DNS A record `@`, `www`, `api` → IP VPS
 - [ ] Uji: `https://api.kuliahdikorea.com/api/health` = `{"status":"ok"}`
 - [ ] Uji: form Cek Kelayakan tersimpan, login admin di `https://kuliahdikorea.com/login`, dashboard & chart tampil, ganti status pendaftar
+
+
+

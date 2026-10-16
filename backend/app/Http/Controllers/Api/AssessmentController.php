@@ -20,7 +20,7 @@ class AssessmentController extends Controller
     }
 
     /**
-     * Simpan hasil asesmen dari formulir "Cek Kelayakan".
+     * Simpan data pendaftaran dari formulir "Formulir Pendaftaran".
      */
     public function store(Request $request)
     {
@@ -29,13 +29,13 @@ class AssessmentController extends Controller
             'whatsapp' => ['required', 'string', 'max:30'],
             'jurusan' => ['required', 'string', 'max:120'],
             'bahasa' => ['nullable', 'string', 'max:120'],
-            'sumber' => ['nullable', Rule::in(['web-cek-kelayakan', 'langsung'])],
+            'sumber' => ['nullable', Rule::in(['web-pendaftaran', 'web-cek-kelayakan', 'langsung'])],
             'answers' => ['nullable', 'array'],
             'rekomendasi' => ['nullable', 'array'],
         ]);
 
         $data['status'] = 'baru';
-        $data['sumber'] = $data['sumber'] ?? 'web-cek-kelayakan';
+        $data['sumber'] = $data['sumber'] ?? 'web-pendaftaran';
 
         $assessment = Assessment::create($data);
 

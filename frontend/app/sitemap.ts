@@ -12,7 +12,7 @@ const routes: {
   { path: "/kerja", priority: 0.8, changeFrequency: "monthly" },
   { path: "/biaya", priority: 0.8, changeFrequency: "monthly" },
   { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/cek-kelayakan", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/pendaftaran", priority: 0.9, changeFrequency: "monthly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

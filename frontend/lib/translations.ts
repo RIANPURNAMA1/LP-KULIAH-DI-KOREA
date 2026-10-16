@@ -201,6 +201,12 @@ export const translations: Record<string, string> = {
     "Toward a global professional career & business",
   "Mulai dari asesmen gratis. Kami cek kesiapan bahasa, jurusan yang cocok, dan rencana biayamu, sebelum kamu memutuskan apa pun":
     "Start with a free assessment. We check your language readiness, the right major, and your cost plan, before you decide anything",
+  "Mulai dari pendaftaran gratis. Lengkapi data dirimu, dan tim kami bantu proses selanjutnya menuju kuliah di Korea":
+    "Start with free registration. Complete your details and our team will guide you through the next steps to study in Korea",
+  "Daftar Sekarang": "Register Now",
+  "Pendaftaran": "Registration",
+  "Pendaftaran gratis · Persyaratan bahasa sesuai ketentuan program":
+    "Free registration · Language requirements follow program rules",
   "Daftar Asesmen Spring 2027": "Register for Spring 2027 Assessment",
   "Tanya Admin via WhatsApp": "Ask Admin via WhatsApp",
 };

@@ -74,10 +74,10 @@ export function FinalCta() {
         <p className="text-sm text-sky-200">지금 시작하자</p>
         <h2 className="mx-auto mt-2 max-w-2xl text-3xl font-bold md:text-4xl">Belajar mandiri di Korea. Menuju karir profesional &amp; bisnis global.</h2>
         <p className="mx-auto mt-4 max-w-xl text-slate-200">
-          Mulai dari asesmen gratis. Kami cek kesiapan bahasa, jurusan yang cocok, dan rencana biayamu, sebelum kamu memutuskan apa pun.
+          Mulai dari pendaftaran gratis. Lengkapi data dirimu, dan tim kami bantu proses selanjutnya menuju kuliah di Korea.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <ButtonLink href="/cek-kelayakan">Daftar Asesmen Spring 2027</ButtonLink>
+          <ButtonLink href="/pendaftaran">Daftar Sekarang</ButtonLink>
           <ButtonLink href={waLink()} external variant="outline">Tanya Admin via WhatsApp</ButtonLink>
         </div>
       </div>

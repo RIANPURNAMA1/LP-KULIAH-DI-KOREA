@@ -5,7 +5,7 @@ import type { RegistrationStatus } from "@/lib/admin-data";
 import type { Assessment } from "@/lib/api";
 import { createAssessment, deleteAssessment, updateAssessment } from "@/lib/api";
 import { useAssessments } from "@/lib/use-assessments";
-import { QUESTIONS, optionLabel } from "@/lib/cek-kelayakan";
+import { SECTIONS, answerLabel } from "@/lib/pendaftaran";
 import { Badge, Button, Card, DataTable, Input, Modal, Pagination, SectionHeader, Select } from "@/components/admin/AdminUI";
 
 const columns = [
@@ -153,8 +153,8 @@ export default function PendaftarPage() {
   return (
     <div className="flex flex-col gap-6">
       <SectionHeader
-        title="Pendaftar Asesmen"
-        desc="Kelola data pendaftar dari formulir 'Cek Kelayakan' dan input manual."
+        title="Data Pendaftar"
+        desc="Kelola data pendaftar dari formulir pendaftaran dan input manual."
         actions={
           <>
             <Button variant="outline" onClick={reload} disabled={loading}>
@@ -282,52 +282,39 @@ export default function PendaftarPage() {
               <DetailItem label="Skor bahasa" value={detail.bahasa || "-"} />
               <DetailItem
                 label="Sumber"
-                value={detail.sumber === "web-cek-kelayakan" ? "Formulir Cek Kelayakan" : "Input manual"}
+                value={detail.sumber === "web-pendaftaran" ? "Formulir Pendaftaran" : "Input manual"}
               />
               <DetailItem label="Tanggal daftar" value={detail.created_at ? detail.created_at.slice(0, 10) : "-"} />
             </dl>
 
-            <div>
-              <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground/60">Jawaban asesmen</h4>
+            <div className="space-y-4">
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground/60">Data Pendaftaran</h4>
               {detail.answers ? (
-                <ol className="mt-3 space-y-2.5">
-                  {QUESTIONS.map((q, i) => (
-                    <li key={q.id} className="rounded-sm border border-line/10 bg-card-soft/50 p-3">
-                      <p className="text-sm font-medium text-foreground">
-                        {i + 1}. {q.title}
-                      </p>
-                      <p className="mt-1 text-sm text-foreground/70">{optionLabel(q, detail.answers?.[q.id])}</p>
-                    </li>
-                  ))}
-                </ol>
+                SECTIONS.map((section) => (
+                  <div key={section.id} className="rounded-sm border border-line/10 bg-card-soft/50 p-3">
+                    <p className="text-sm font-semibold text-foreground">
+                      {section.code}. {section.title}
+                    </p>
+                    <dl className="mt-2 space-y-2">
+                      {section.fields
+                        .filter((f) => !f.showIf || f.showIf(detail.answers ?? {}))
+                        .map((f) => (
+                          <div key={f.name} className="flex flex-col gap-0.5 sm:flex-row sm:justify-between sm:gap-4">
+                            <dt className="text-xs text-foreground/60">{f.label}</dt>
+                            <dd className="text-sm text-foreground sm:text-right">
+                              {answerLabel(f, detail.answers ?? {})}
+                            </dd>
+                          </div>
+                        ))}
+                    </dl>
+                  </div>
+                ))
               ) : (
-                <p className="mt-3 text-sm text-foreground/60">
-                  Pendaftar ini tidak memiliki jawaban asesmen (data input manual).
+                <p className="text-sm text-foreground/60">
+                  Pendaftar ini tidak memiliki data formulir (input manual).
                 </p>
               )}
             </div>
-
-            {detail.rekomendasi && (
-              <div>
-                <h4 className="text-sm font-semibold uppercase tracking-wide text-foreground/60">
-                  Rekomendasi saat asesmen
-                </h4>
-                <div className="mt-3 space-y-2 rounded-sm border border-line/10 bg-card-soft/50 p-4 text-sm">
-                  <p>
-                    <span className="text-foreground/60">Rekomendasi jurusan: </span>
-                    <strong className="text-foreground">{detail.rekomendasi.major.name}</strong>
-                  </p>
-                  <p>
-                    <span className="text-foreground/60">Kesiapan bahasa: </span>
-                    {detail.rekomendasi.language.label}
-                  </p>
-                  <p>
-                    <span className="text-foreground/60">Rencana pembiayaan: </span>
-                    {detail.rekomendasi.finance.label}
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
         )}
       </Modal>
