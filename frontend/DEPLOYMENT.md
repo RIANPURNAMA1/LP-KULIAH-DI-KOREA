@@ -531,6 +531,7 @@ chmod +x ~/deploy.sh
 - **Gambar blur/lambat** → pastikan `sharp` terpasang (`npm install sharp`) lalu build ulang.
 - **MySQL access denied** → cek `DB_USERNAME`/`DB_PASSWORD` di `.env` & grant user.
 - **Cek port 3000 dipakai siapa** → `ss -tlnp | grep 3000`.
+- **`/admin` malah redirect ke `https://localhost:<port>/login`** → Nginx tidak meneruskan `Host` asli. Pastikan blok `location /` berisi `proxy_set_header Host $host;` dan `proxy_set_header X-Forwarded-Proto $scheme;` (lihat bagian 11), lalu `sudo nginx -t && sudo systemctl reload nginx`. Middleware Next sudah punya fallback ke `NEXT_PUBLIC_SITE_URL`, jadi redirect tetap benar walau header belum lengkap.
 
 ---
 
