@@ -5,7 +5,7 @@ export const organizationSchema = {
   "@id": `${siteUrl}/#organization`,
   name: siteName,
   url: siteUrl,
-  logo: `${siteUrl}/LOGO%20KARIR%20DI%20KOREA.png`,
+  logo: `${siteUrl}/logo-karir-di-korea.png`,
   description: siteDescription,
   areaServed: "ID",
   knowsLanguage: ["id", "ko", "en"],

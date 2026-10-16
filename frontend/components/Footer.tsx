@@ -47,7 +47,7 @@ export default function Footer() {
         <div>
           <p className="flex items-center gap-3 text-3xl font-extrabold tracking-tight text-white">
             <img
-              src="/LOGO%20KARIR%20DI%20KOREA.png"
+              src="/logo-karir-di-korea.png"
               alt="Logo Karir di Korea"
               loading="lazy"
               className="h-14 w-auto brightness-0 invert"

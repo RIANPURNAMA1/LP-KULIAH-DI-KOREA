@@ -441,7 +441,7 @@ export default function AdminShell({ children, onLogout }: AdminShellProps) {
               priority
             />
             <Image
-              src="/LOGO%20KARIR%20DI%20KOREA.png"
+              src="/logo-karir-di-korea.png"
               alt="Karir di Korea"
               width={130}
               height={38}

@@ -24,21 +24,21 @@ const city = [
     ko: "부산",
     title: "Kota terbesar ke-2 di Korea",
     text: "Hidup lebih terjangkau dari Seoul, peluang kerja tetap luas.",
-    img: "/Busan%20Senja_%20Jembatan%20dan%20Teluk%20Berkilau.png",
+    img: "/busan-senja.png",
     imgAlt: "Pemandangan Busan saat senja dengan jembatan dan teluk berkilau",
   },
   {
     ko: "항구 · 산업",
     title: "Pelabuhan & kawasan industri terbesar",
     text: "Dua pusat lapangan kerja dalam satu kota.",
-    img: "/Pelabuhan%20Kontainer%20Saat%20Matahari%20Terbenam.png",
+    img: "/pelabuhan-kontainer.png",
     imgAlt: "Pelabuhan kontainer saat matahari terbenam",
   },
   {
     ko: "동의대학교",
     title: "Kampus terbesar ke-4 di Busan",
     text: "Berdiri sejak 1977, di Gaya, Busanjin-gu, pusat kota.",
-    img: "/University%20Campus%20Beneath%20the%20Green%20Mountain.png",
+    img: "/university-campus.png",
     imgAlt: "Kampus universitas di bawah gunung hijau",
   },
 ];
@@ -1180,7 +1180,7 @@ export default function HomeContent() {
         <div className="relative mx-auto max-w-6xl px-6">
           {/* Gambar peta kecil transparan di tengah belakang */}
           <img
-            src="hero-maps.webp"
+            src="/hero-maps.webp"
             alt=""
             aria-hidden="true"
             loading="lazy"
@@ -1238,7 +1238,7 @@ export default function HomeContent() {
               />
 
               <img
-                src="9.png"
+                src="/9.png"
                 alt="Konsultan Karir di Korea"
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]"

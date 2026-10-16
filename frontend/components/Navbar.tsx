@@ -34,7 +34,7 @@ export default function Navbar() {
         {/* LOGO AREA */}
         <Link href="/" className="flex items-center gap-2 font-bold text-foreground text-xl tracking-tight" onClick={() => setOpen(false)}>
           <Image
-            src="/LOGO%20KARIR%20DI%20KOREA.png"
+            src="/logo-karir-di-korea.png"
             alt="Karir di Korea"
             width={140}
             height={40}

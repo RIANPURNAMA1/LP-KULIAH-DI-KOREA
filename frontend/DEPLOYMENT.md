@@ -553,5 +553,3 @@ chmod +x ~/deploy.sh
 - [ ] Uji: `https://api.kuliahdikorea.com/api/health` = `{"status":"ok"}`
 - [ ] Uji: form Cek Kelayakan tersimpan, login admin di `https://kuliahdikorea.com/login`, dashboard & chart tampil, ganti status pendaftar
 
-
-
